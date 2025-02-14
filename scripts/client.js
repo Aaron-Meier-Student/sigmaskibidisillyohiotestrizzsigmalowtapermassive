@@ -77,17 +77,23 @@ function displayDetails(object, element, offset = 0) {
         element.classList.add("fadeOut");
         setTimeout(() => {
             element.remove();
-        }, 300);
+        }, 1500);
     });
     const newDisplay = element.cloneNode(true);
     newDisplay.innerHTML = `
         <h3>${object.name}</h3>
+        <h4> Test Sigma Rizz </h4>
+        <h4> Test Sigma Rizz </h4>
+        <h4> Test Sigma Rizz </h4>
+        <h4> Test Sigma Rizz </h4>
+        <h4> Test Sigma Rizz </h4>
     `
     const elementInfomration = getAbsolutePosition(element);
     console.log(elementInfomration);
     newDisplay.style.transform = "";
-    newDisplay.style.transition = "250ms";
+    newDisplay.style.transition = "1000ms";
     newDisplay.style.position = "absolute";
+    newDisplay.style.border = "15px solid #0e0e0e";
     newDisplay.style.width = elementInfomration.width + "px";
     newDisplay.style.height = elementInfomration.height + "px";
     newDisplay.style.top = elementInfomration.top + "px";
@@ -100,20 +106,23 @@ function displayDetails(object, element, offset = 0) {
         newDisplay.classList.add("fadeOut");
         setTimeout(() => {
             newDisplay.remove();
-        }, 300);
+        }, 1500);
     })
     setTimeout(() => {
         newDisplay.classList.add("display");
     }, 15);
+    Array.from(newDisplay.children).forEach(element => {
+        element.style.opacity = "0";
+    });
     setTimeout(() => {
         let delay = 0;
         Array.from(newDisplay.children).forEach(element => {
-            delay += 15;
+            delay += 50;
             setTimeout(() => {
                 element.classList.add("fadeIn");
             }, delay);
         });
-    }, 225);
+    }, 625);
 }
 
 createCircularAnimation({
